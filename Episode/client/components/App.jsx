@@ -1,11 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Routes from '../Routes.jsx'
+import TrackerReact from 'meteor/ultimatejs:tracker-react'
 
 Shows = new Mongo.Collection('shows')
 
 
-export default class App extends React.Component {
+export default class App extends TrackerReact(React.Component) {
+
+  shows() {
+    return Shows.find().fetch()
+  }
 
   addShow(event) {
     event.preventDefault()
@@ -17,12 +22,11 @@ export default class App extends React.Component {
         show: show,
         season: season,
         episode: episode
-
       })
-      // console.log(item)
   }
 
   render() {
+    console.log(this.shows())
     return(
       <div>
         <h1>Show List</h1>
@@ -40,7 +44,7 @@ export default class App extends React.Component {
                 type='text'
                 ref='episodeInput' />
 
-            <input type="submit" value="Submit my form" />
+              <input type="submit" value="Add Show" />
 
         </form>
       </div>
