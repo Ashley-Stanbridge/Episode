@@ -18,12 +18,16 @@ export default class App extends TrackerReact(React.Component) {
       }
     }
   }
+
+  componentWillUnmount() {
+    this.state.subscription.shows.stop()
+  }
+
   shows() {
     return Shows.find().fetch()
   }
 
   render() {
-    console.log(this.shows())
     return(
       <div>
         <h1>Show List</h1>
