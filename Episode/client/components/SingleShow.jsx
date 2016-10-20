@@ -4,23 +4,23 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react'
 export default class SingleShow extends TrackerReact(Component) {
 
   countUp() {
-    Meteor.call('countUp', this.props.show._id, this.props.show.episode)
+    Meteor.call('countUp', this.props.show)
   }
 
   countDown() {
-    Meteor.call('countDown', this.props.show._id, this.props.show.episode)
+    Meteor.call('countDown', this.props.show)
   }
 
   seasonUp() {
-    Meteor.call('seasonUp', this.props.show._id, this.props.show.season)
+    Meteor.call('seasonUp', this.props.show)
   }
 
   seasonDown() {
-    Meteor.call('seasonDown', this.props.show._id, this.props.show.season)
+    Meteor.call('seasonDown', this.props.show)
   }
 
   deleteShow() {
-    Meteor.call('deleteShow', this.props.show._id)
+    Meteor.call('deleteShow', this.props.show)
   }
 
   render() {

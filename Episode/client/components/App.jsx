@@ -4,6 +4,7 @@ import Routes from '../Routes.jsx'
 import TrackerReact from 'meteor/ultimatejs:tracker-react'
 import ShowForm from './ShowForm'
 import SingleShow from './SingleShow'
+import AccountsUI from './AccountsUI'
 
 Shows = new Mongo.Collection('shows')
 
@@ -14,7 +15,7 @@ export default class App extends TrackerReact(React.Component) {
 
     this.state = {
       subscription: {
-        Shows: Meteor.subscribe('allShows')
+        Shows: Meteor.subscribe('userShows')
       }
     }
   }
@@ -30,6 +31,7 @@ export default class App extends TrackerReact(React.Component) {
   render() {
     return(
       <div>
+        <AccountsUI />
         <h1>Show List</h1>
         <ShowForm />
         <ul>
