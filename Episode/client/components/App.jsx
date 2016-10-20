@@ -9,7 +9,15 @@ Shows = new Mongo.Collection('shows')
 
 
 export default class App extends TrackerReact(React.Component) {
+  constructor() {
+    super()
 
+    this.state = {
+      subscription: {
+        Shows: Meteor.subscribe('allShows')
+      }
+    }
+  }
   shows() {
     return Shows.find().fetch()
   }

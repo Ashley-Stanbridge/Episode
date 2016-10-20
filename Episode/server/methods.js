@@ -1,5 +1,3 @@
-Shows = new Mongo.Collection('shows')
-
 Meteor.methods({
   addShow(addedshow, addedseason, addedepisode){
     Shows.insert({
