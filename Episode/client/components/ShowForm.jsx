@@ -8,11 +8,7 @@ export default class ShowForm extends Component {
       var season = this.refs.seasonInput.value.trim()
       var episode = this.refs.episodeInput.value.trim()
 
-      Shows.insert({
-        show: show,
-        season: season,
-        episode: episode
-      })
+      Meteor.call('addShow', show, season, episode)
   }
 
   render() {
