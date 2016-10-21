@@ -30,15 +30,27 @@ export default class App extends TrackerReact(React.Component) {
 
   render() {
     return(
-      <div>
-        <AccountsUI />
-        <h1>Show List</h1>
-        <ShowForm />
-        <ul>
-          {this.shows().map((show)=> {
-            return <SingleShow show={show} season={show} key={show._id} />
-          })}
-        </ul>
+      <div className='container-fluid' id='appbox'>
+        <div className='row'>
+          <div className='col-md-10'>
+            <h1>Episode Tracker</h1>
+          </div>
+          <div className='col-md-2'>
+            <AccountsUI className='login'/>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col-md-12'>
+            <ShowForm />
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col-md-4'>
+            {this.shows().map((show)=> {
+              return <SingleShow show={show} season={show} key={show._id} />
+            })}
+          </div>
+        </div>
       </div>
     )
   }

@@ -13,12 +13,14 @@ export default class ShowForm extends Component {
 
   render() {
     return (
-      <form className='new-show' onSubmit={this.addShow.bind(this)}>
-        <input type='text' ref='showInput' />
-        <input type='number' ref='seasonInput' />
-        <input type='number' ref='episodeInput' />
-        <input type="submit" value="Add Show" />
-      </form>
+      <div>
+        <form className='form-inline' onSubmit={this.addShow.bind(this)}>
+          <input className='flex-item' type='text' ref='showInput' placeholder='Show'/>
+          <input className='flex-item' type='number' ref='seasonInput' placeholder='Season'/>
+          <input className='flex-item' type='number' ref='episodeInput' placeholder='Episode'/>
+          <button className='btn btn-default' type="submit" value="Add Show">Add</button>
+        </form>
+      </div>
     )
   }
 }

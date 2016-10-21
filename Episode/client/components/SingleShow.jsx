@@ -25,26 +25,36 @@ export default class SingleShow extends TrackerReact(Component) {
 
   render() {
     return (
-      <div>
-        <div className='showBox'>
-          <li>
-              <div className='episodeButtons'>
-                <button onClick={this.countUp.bind(this)}>UP</button>
-                <button onClick={this.countDown.bind(this)}>DOWN</button>
-              </div>
-              <div className='seasonButtons'>
-                <button onClick={this.seasonUp.bind(this)}>UP</button>
-                <button onClick={this.seasonDown.bind(this)}>DOWN</button>
-              </div>
+      <div className='container' id="showbox">
+        <div className='row'>
+          <div className='col-md-2'>
+            <h3>Show</h3>
             <p>{this.props.show.show}</p>
+          </div>
+          <div className='col-md-2'>
+            <h3>Season</h3>
             <p>Season {this.props.show.season}</p>
+          </div>
+          <div className='col-md-2'>
+            <h3>Episode</h3>
             <p>Episode {this.props.show.episode}</p>
-            <button className='delete' onClick={this.deleteShow.bind(this)}>
-              &times;
-            </button>
-          </li>
+          </div>
+          <div className='col-md-1'>
+            <button className='btn btn-default' onClick={this.seasonUp.bind(this)}><i className="fa fa-arrow-up" aria-hidden="true"></i></button>
+            <button className='btn btn-default' onClick={this.seasonDown.bind(this)}><i className="fa fa-arrow-down" aria-hidden="true"></i></button>
+          </div>
+          <div className='col-md-1'>
+            <button className='btn btn-default' id='rightbutton'onClick={this.countUp.bind(this)}><i className="fa fa-arrow-up" aria-hidden="true"></i></button>
+            <button  className='btn btn-default' onClick={this.countDown.bind(this)}><i className="fa fa-arrow-down" aria-hidden="true"></i></button>
+          </div>
+          </div>
       </div>
-    </div>
+
     )
   }
 }
+
+
+
+
+  // <button className='btn btn-default' onClick={this.deleteShow.bind(this)}>&times;</button>
